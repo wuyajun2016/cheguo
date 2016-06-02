@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//src/config/FrameWork.properties=GBK
+encoding//src/log4j.properties=GBK
+encoding/testdata.mdb=UTF-8

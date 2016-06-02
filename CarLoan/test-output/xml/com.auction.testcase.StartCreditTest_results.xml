@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AuctionWebTest_googlechrome"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="25.003">
+  <properties />
+  
+  
+            <testcase name="startcredit" time="17.183" classname="com.auction.testcase.StartCreditTest" />
+                <testcase name="testLogin" time="7.820" classname="com.auction.testcase.StartCreditTest" />
+      
+</testsuite>
