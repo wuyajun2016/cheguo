@@ -97,7 +97,7 @@ public class LoanStartTest extends WebdriverBaseCase {
 	}
 	
 
-	@Test(enabled = true, alwaysRun = true)
+	@Test(dependsOnMethods={"testLogin"},enabled = true, alwaysRun = true)
 	public void loanstart() {
 		boolean flag = false;
 		beforeTest("loanstart");
