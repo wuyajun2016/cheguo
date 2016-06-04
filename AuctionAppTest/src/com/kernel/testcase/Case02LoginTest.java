@@ -24,7 +24,7 @@ public class Case02LoginTest extends AthrunTestCase {
 	}
 
 	public void setUp() {
-		Log.i(TAG, "running setUp");
+		Log.i(TAG, "running setUp1");
 		try {
 			solo = new Solo(getInstrumentation(), getActivity());
 			Login = new Login(this, solo);
