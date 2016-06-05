@@ -25,7 +25,7 @@ public class InitTest extends BaseCase {
 	public void beforeTestSuite() {
 		beforeSuite();
 		Map<String, String> user1Map = ExcelUtil.importDataTable(
-				"testdata.xls", "InitTest", "inituser1");
+				"testdata.xls", "InitTest", "inituser1"); //test github commit
 		RegisterAction = new RegisterAction();
 		uid = user1Map.get("uid");
 		email = user1Map.get("email");
