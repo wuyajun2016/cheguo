@@ -26,7 +26,7 @@ public class DWHttpResponse {
 		try {
 			return new JSONObject(body);
 		} catch (JSONException e) {
-			logger.error("getBodyAsJson error £º", e);
+			logger.error("getBodyAsJson error ï¼š", e);
 		}
 		return null;
 	}

@@ -14,7 +14,7 @@ import com.kernel.basecase.BaseCase;
 import com.kernel.util.Base64;
 import com.kernel.util.ExcelUtil;
 
-@Test(groups = { "LoginActionTest" }, description = "µÇÂ¼²âÊÔ")
+@Test(groups = { "LoginActionTest" }, description = "ç™»å½•æµ‹è¯•")
 public class LoginActionTest extends BaseCase {
 	private LoginAction LoginAction;
 	private Logger logger = Logger.getLogger(LoginActionTest.class);
@@ -25,11 +25,11 @@ public class LoginActionTest extends BaseCase {
 			beforeClass();
 			LoginAction = new LoginAction();
 		} catch (Exception e) {
-			logger.error("Ö´ĞĞLoginActionTest.beforeClassTest´íÎó£º", e);
+			logger.error("æ‰§è¡ŒLoginActionTest.beforeClassTesté”™è¯¯ï¼š", e);
 		}
 	}
 
-	@Test(enabled = true, alwaysRun = true, description = "µÇÂ¼²âÊÔ")
+	@Test(enabled = true, alwaysRun = true, description = "ç™»å½•æµ‹è¯•")
 	public void testLogin() {
 		boolean flag = false;
 
@@ -51,13 +51,13 @@ public class LoginActionTest extends BaseCase {
 				flag = true;
 			}
 		} catch (Exception e) {
-			logger.error("Ö´ĞĞLoginActionTest.testLogin´íÎó£º", e);
+			logger.error("æ‰§è¡ŒLoginActionTest.testLoginé”™è¯¯ï¼š", e);
 		}
 		afterTest("testLogin", flag);
 		Assert.assertEquals(flag, true, className + ".testLogin failed!");
 	}
 
-	@Test(dependsOnMethods = { "testLogin" }, enabled = true, alwaysRun = true, description = "µÇÂ¼ÃÜÂë´íÎó²âÊÔ")
+	@Test(dependsOnMethods = { "testLogin" }, enabled = true, alwaysRun = true, description = "ç™»å½•å¯†ç é”™è¯¯æµ‹è¯•")
 	public void testLoginWithPwdError() {
 		boolean flag = false;
 
@@ -74,7 +74,7 @@ public class LoginActionTest extends BaseCase {
 				flag = true;
 			}
 		} catch (Exception e) {
-			logger.error("Ö´ĞĞLoginActionTest.testLoginWithPwdError´íÎó£º", e);
+			logger.error("æ‰§è¡ŒLoginActionTest.testLoginWithPwdErroré”™è¯¯ï¼š", e);
 		}
 		afterTest("testLoginWithPwdError", flag);
 		Assert.assertEquals(flag, true, className
@@ -86,7 +86,7 @@ public class LoginActionTest extends BaseCase {
 		try {
 			afterClass();
 		} catch (Exception e) {
-			logger.error("Ö´ĞĞLoginActionTest.afterClassTest´íÎó£º", e);
+			logger.error("æ‰§è¡ŒLoginActionTest.afterClassTesté”™è¯¯ï¼š", e);
 		}
 
 	}

@@ -60,7 +60,7 @@ public class DWHttpClient {
 	 * @return DWHttpResponse
 	 */
 	public DWHttpResponse sendPostRequest(String url, String body) {
-		HttpPost method = new HttpPost(url);
+		HttpPost method = new HttpPost(url);  //创建一个HttpPost对象
 		method.addHeader(new BasicHeader("Accept", WebConstant.WEB_ACCEPT_JSON));
 		method.addHeader(new BasicHeader("ContentType",
 				WebConstant.WEB_CONTENT_TYPE_JSON));
@@ -82,7 +82,7 @@ public class DWHttpClient {
 			StringEntity se = new StringEntity(body);
 			se.setContentEncoding(WebConstant.CHARSET_UTF8);
 			se.setContentType(WebConstant.WEB_ACCEPT_JSON);
-			method.setEntity(se);
+			method.setEntity(se); //使用HttpPost类的setEntity方法设置请求参数
 			response = sendRequest(method);
 		} catch (Exception e) {
 			logger.error("sendPostRequest error : ", e);
@@ -103,12 +103,12 @@ public class DWHttpClient {
 		HttpEntity entity = null;
 
 		try {
-			HttpResponse HttpResponse = client.execute(method);
+			HttpResponse HttpResponse = client.execute(method);  //使用DefaultHttpClient类的execute方法发送HTTP GET或HTTP POST请求，并返回HttpResponse对象
 			res.setStatusCode(HttpResponse.getStatusLine().getStatusCode());
 			res.setStatusLine(HttpResponse.getStatusLine().toString());
 
-			entity = HttpResponse.getEntity();
-			String charset = EntityUtils.getContentCharSet(entity);
+			entity = HttpResponse.getEntity();  //通过HttpResponse接口的getEntity方法返回响应信息，并进行相应的处理
+			String charset = EntityUtils.getContentCharSet(entity);  //取出应答字符串
 			res.setBody(EntityUtils.toString(entity, charset));
 
 			Header[] headers = HttpResponse.getAllHeaders();

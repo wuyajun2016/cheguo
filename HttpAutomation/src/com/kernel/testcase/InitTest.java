@@ -47,7 +47,7 @@ public class InitTest extends BaseCase {
 						+ authtime);
 			}
 		} catch (Exception e) {
-			logger.error("Ö´ÐÐInitTest.beforeTestSuite´íÎó£º", e);
+			logger.error("æ‰§è¡ŒInitTest.beforeTestSuiteé”™è¯¯ï¼š", e);
 		}
 
 		Map<String, String> user2Map = ExcelUtil.importDataTable(
@@ -73,7 +73,7 @@ public class InitTest extends BaseCase {
 						+ authtime);
 			}
 		} catch (Exception e) {
-			logger.error("Ö´ÐÐInitTest.beforeTestSuite´íÎó£º", e);
+			logger.error("æ‰§è¡ŒInitTest.beforeTestSuiteé”™è¯¯ï¼š", e);
 		}
 	}
 

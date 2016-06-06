@@ -20,49 +20,49 @@ public class BaseCase {
 
 		String begins = DateTimeUtil.formatedTime("yyyy-MM-dd HH:mm:ss:SSS");
 		beforeSuiteStarts = System.currentTimeMillis();
-		logger.info("======" + begins + "£º²âÊÔ¼¯¿ªÊ¼======");
+		logger.info("======" + begins + "ï¼šæµ‹è¯•é›†å¼€å§‹======");
 	}
 
 	public void afterSuite() {
 		String ends = DateTimeUtil.formatedTime("yyyy-MM-dd HH:mm:ss:SSS");
 		afterSuiteStops = System.currentTimeMillis();
-		logger.info("======" + ends + "£º²âÊÔ¼¯½áÊø======");
-		logger.info("======±¾´Î²âÊÔ¼¯ÔËĞĞÏûºÄÊ±¼ä "
-				+ (afterSuiteStops - beforeSuiteStarts) / 1000 + " Ãë£¡======");
+		logger.info("======" + ends + "ï¼šæµ‹è¯•é›†ç»“æŸ======");
+		logger.info("======æœ¬æ¬¡æµ‹è¯•é›†è¿è¡Œæ¶ˆè€—æ—¶é—´ "
+				+ (afterSuiteStops - beforeSuiteStarts) / 1000 + " ç§’ï¼======");
 	}
 
 	public void beforeClass() {
 		String begins = DateTimeUtil.formatedTime("yyyy-MM-dd HH:mm:ss:SSS");
 		beforeClassStarts = System.currentTimeMillis();
-		logger.info("======" + begins + "£º²âÊÔ¡¾" + className + "¡¿¿ªÊ¼======");
+		logger.info("======" + begins + "ï¼šæµ‹è¯•ã€" + className + "ã€‘å¼€å§‹======");
 	}
 
 	public void afterClass() {
 		String ends = DateTimeUtil.formatedTime("yyyy-MM-dd HH:mm:ss:SSS");
 		afterClassStops = System.currentTimeMillis();
-		logger.info("======" + ends + "£º²âÊÔ¡¾" + className + "¡¿½áÊø======");
-		logger.info("======±¾´Î²âÊÔÔËĞĞÏûºÄÊ±¼ä " + (afterClassStops - beforeClassStarts)
-				/ 1000 + " Ãë£¡======");
+		logger.info("======" + ends + "ï¼šæµ‹è¯•ã€" + className + "ã€‘ç»“æŸ======");
+		logger.info("======æœ¬æ¬¡æµ‹è¯•è¿è¡Œæ¶ˆè€—æ—¶é—´ " + (afterClassStops - beforeClassStarts)
+				/ 1000 + " ç§’ï¼======");
 	}
 
 	public void beforeTest(String methodName) {
 		String begins = DateTimeUtil.formatedTime("yyyy-MM-dd HH:mm:ss:SSS");
 		beforeTestStarts = System.currentTimeMillis();
-		logger.info("======" + begins + "£º°¸Àı¡¾" + className + "." + methodName
-				+ "¡¿¿ªÊ¼======");
+		logger.info("======" + begins + "ï¼šæ¡ˆä¾‹ã€" + className + "." + methodName
+				+ "ã€‘å¼€å§‹======");
 	}
 
 	public void afterTest(String methodName, boolean isSucceed) {
 		String ends = DateTimeUtil.formatedTime("yyyy-MM-dd HH:mm:ss:SSS");
 		afterTestStops = System.currentTimeMillis();
 		if (isSucceed) {
-			logger.info("°¸Àı ¡¾" + className + "." + methodName + "¡¿ ÔËĞĞÍ¨¹ı£¡");
+			logger.info("æ¡ˆä¾‹ ã€" + className + "." + methodName + "ã€‘ è¿è¡Œé€šè¿‡ï¼");
 		} else {
-			logger.error("°¸Àı ¡¾" + className + "." + methodName + "¡¿ ÔËĞĞÊ§°Ü£¡");
+			logger.error("æ¡ˆä¾‹ ã€" + className + "." + methodName + "ã€‘ è¿è¡Œå¤±è´¥ï¼");
 		}
-		logger.info("======" + ends + "£º°¸Àı¡¾" + className + "." + methodName
-				+ "¡¿½áÊø======");
-		logger.info("======±¾´Î°¸ÀıÔËĞĞÏûºÄÊ±¼ä " + (afterTestStops - beforeTestStarts)
-				/ 1000 + " Ãë£¡======");
+		logger.info("======" + ends + "ï¼šæ¡ˆä¾‹ã€" + className + "." + methodName
+				+ "ã€‘ç»“æŸ======");
+		logger.info("======æœ¬æ¬¡æ¡ˆä¾‹è¿è¡Œæ¶ˆè€—æ—¶é—´ " + (afterTestStops - beforeTestStarts)
+				/ 1000 + " ç§’ï¼======");
 	}
 }

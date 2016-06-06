@@ -19,6 +19,7 @@ public class RegisterAction {
 			"config/httptest.properties");
 	private static Logger logger = Logger.getLogger(RegisterAction.class);
 
+	//构造请求的URL连接
 	public RegisterAction() {
 		String secret = PropUtil.get("secret");
 		StringBuffer sb = new StringBuffer();
@@ -36,6 +37,7 @@ public class RegisterAction {
 
 	}
 
+	//发送请求，并得到返回结果
 	public JSONObject register(String email, String password, String uid,
 			String authtime) {
 		String body = String.format(template, new Object[] { email, password,
@@ -49,6 +51,7 @@ public class RegisterAction {
 
 	}
 
+	//调试
 	public static void main(String[] args) {
 		String uid = DateTimeUtil.getDateTime();
 		String email = uid + "@test.com";

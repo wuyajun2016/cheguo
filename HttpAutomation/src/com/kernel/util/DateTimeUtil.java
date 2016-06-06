@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class DateTimeUtil {
 	/**
-	 * »ñÈ¡ÏµÍ³µ±Ç°ÈÕÆÚºÍÊ±¼ä²¢¸ñÊ½»¯ÎªyyyyMMddHHmmss¼´ÀàËÆ20110810155638¸ñÊ½
+	 * è·å–ç³»ç»Ÿå½“å‰æ—¥æœŸå’Œæ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºyyyyMMddHHmmsså³ç±»ä¼¼20110810155638æ ¼å¼
 	 * 
-	 * @param ÎŞ
-	 * @return ÏµÍ³µ±Ç°ÈÕÆÚºÍÊ±¼ä²¢¸ñÊ½»¯ÎªyyyyMMddHHmmss¼´ÀàËÆ20110810155638¸ñÊ½
+	 * @param æ— 
+	 * @return ç³»ç»Ÿå½“å‰æ—¥æœŸå’Œæ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºyyyyMMddHHmmsså³ç±»ä¼¼20110810155638æ ¼å¼
 	 */
 	public static String getCurrentDateTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -17,10 +17,10 @@ public class DateTimeUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÏµÍ³µ±Ç°ÈÕÆÚºÍÊ±¼ä²¢¸ñÊ½»¯ÎªyyyyMMddHHmmssSSS¼´ÀàËÆ20130526002728796¸ñÊ½
+	 * è·å–ç³»ç»Ÿå½“å‰æ—¥æœŸå’Œæ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºyyyyMMddHHmmssSSSå³ç±»ä¼¼20130526002728796æ ¼å¼
 	 * 
-	 * @param ÎŞ
-	 * @return ÏµÍ³µ±Ç°ÈÕÆÚºÍÊ±¼ä²¢¸ñÊ½»¯ÎªyyyyMMddHHmmssSSS¼´ÀàËÆ20130526002728796¸ñÊ½
+	 * @param æ— 
+	 * @return ç³»ç»Ÿå½“å‰æ—¥æœŸå’Œæ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºyyyyMMddHHmmssSSSå³ç±»ä¼¼20130526002728796æ ¼å¼
 	 */
 	public static String getDateTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
@@ -28,10 +28,10 @@ public class DateTimeUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÏµÍ³µ±Ç°ÈÕÆÚ²¢¸ñÊ½»¯ÎªyyyyMMdd¼´ÀàËÆ20110810¸ñÊ½
+	 * è·å–ç³»ç»Ÿå½“å‰æ—¥æœŸå¹¶æ ¼å¼åŒ–ä¸ºyyyyMMddå³ç±»ä¼¼20110810æ ¼å¼
 	 * 
-	 * @param ÎŞ
-	 * @return ÏµÍ³µ±Ç°ÈÕÆÚ²¢¸ñÊ½»¯ÎªyyyyMMdd¼´ÀàËÆ20110810¸ñÊ½
+	 * @param æ— 
+	 * @return ç³»ç»Ÿå½“å‰æ—¥æœŸå¹¶æ ¼å¼åŒ–ä¸ºyyyyMMddå³ç±»ä¼¼20110810æ ¼å¼
 	 */
 	public static String getCurrentDate() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -39,10 +39,10 @@ public class DateTimeUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÏµÍ³µ±Ç°Ê±¼ä²¢¸ñÊ½»¯ÎªHHmmss¼´ÀàËÆ155638¸ñÊ½
+	 * è·å–ç³»ç»Ÿå½“å‰æ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºHHmmsså³ç±»ä¼¼155638æ ¼å¼
 	 * 
-	 * @param ÎŞ
-	 * @return ÏµÍ³µ±Ç°Ê±¼ä²¢¸ñÊ½»¯ÎªHHmmss¼´ÀàËÆ155638¸ñÊ½
+	 * @param æ— 
+	 * @return ç³»ç»Ÿå½“å‰æ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºHHmmsså³ç±»ä¼¼155638æ ¼å¼
 	 */
 	public static String getCurrentTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("HHmmss");
@@ -50,10 +50,10 @@ public class DateTimeUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÏµÍ³µ±Ç°Ê±¼ä²¢¸ñÊ½»¯ÎªHHmmssSSS¼´ÀàËÆ155039527¸ñÊ½
+	 * è·å–ç³»ç»Ÿå½“å‰æ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºHHmmssSSSå³ç±»ä¼¼155039527æ ¼å¼
 	 * 
-	 * @param ÎŞ
-	 * @return ÏµÍ³µ±Ç°Ê±¼ä²¢¸ñÊ½»¯ÎªHHmmssSSS¼´ÀàËÆ155039527¸ñÊ½
+	 * @param æ— 
+	 * @return ç³»ç»Ÿå½“å‰æ—¶é—´å¹¶æ ¼å¼åŒ–ä¸ºHHmmssSSSå³ç±»ä¼¼155039527æ ¼å¼
 	 */
 	public static String getTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("HHmmssSSS");
@@ -61,11 +61,11 @@ public class DateTimeUtil {
 	}
 
 	/**
-	 * ¸ù¾İ×Ô¶¨Òå¸ñÊ½»¯»ñÈ¡ÏµÍ³µ±Ç°Ê±¼ä
+	 * æ ¹æ®è‡ªå®šä¹‰æ ¼å¼åŒ–è·å–ç³»ç»Ÿå½“å‰æ—¶é—´
 	 * 
 	 * @param format
-	 *            Ê±¼ä¸ñÊ½»¯Èçyyyy-MM-dd HH:mm:ss:SSS
-	 * @return ¸ù¾İ×Ô¶¨Òå¸ñÊ½»¯·µ»ØÏµÍ³µ±Ç°Ê±¼ä
+	 *            æ—¶é—´æ ¼å¼åŒ–å¦‚yyyy-MM-dd HH:mm:ss:SSS
+	 * @return æ ¹æ®è‡ªå®šä¹‰æ ¼å¼åŒ–è¿”å›ç³»ç»Ÿå½“å‰æ—¶é—´
 	 */
 	public static String formatedTime(String format) {
 		SimpleDateFormat sdf = new SimpleDateFormat(format);

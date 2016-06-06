@@ -18,6 +18,7 @@ public class LoginAction {
 			"config/httptest.properties");
 	private static Logger logger = Logger.getLogger(LoginAction.class);
 
+	//初始化，构造请求URL连接
 	public LoginAction() {
 		String secret = PropUtil.get("secret");
 		StringBuffer sb = new StringBuffer();
@@ -35,6 +36,7 @@ public class LoginAction {
 
 	}
 
+	//发送请求，并得到返回结果
 	public JSONObject login(String email, String password) {
 		String body = String.format(template, new Object[] { email, password });
 		response = request.sendPostRequest(url, body);

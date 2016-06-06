@@ -17,6 +17,13 @@ import org.apache.log4j.Logger;
 public class ExcelUtil {
 	private static Logger logger = Logger.getLogger(ExcelUtil.class);
 
+	/**
+	 * 读取指定EXCEL中的内容
+	 * @param excelname
+	 * @param sheetname
+	 * @param findContent
+	 * @return
+	 */
 	public static Map<String, String> importDataTable(String excelname,
 			String sheetname, String findContent) {
 		String excelpath = System.getProperty("user.dir") + File.separator
@@ -30,6 +37,13 @@ public class ExcelUtil {
 		return mapdata;
 	}
 
+	/**
+	 * 读取excel中数据的具体实现
+	 * @param excelpath
+	 * @param sheetname
+	 * @param caseName
+	 * @return
+	 */
 	public static Map<String, String> getSpecifySheet(String excelpath,
 			String sheetname, String caseName) {
 
