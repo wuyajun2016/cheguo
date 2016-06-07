@@ -10,6 +10,11 @@ import org.apache.log4j.Logger;
 public class FileUtil {
 	private Logger logger = Logger.getLogger(FileUtil.class);
 
+	/**
+	 * 将json转化成jsonString
+	 * @param fileName
+	 * @return
+	 */
 	public String getContent(String fileName) {
 
 		return changeInputStream(FileUtil.class.getClassLoader()

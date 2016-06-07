@@ -37,7 +37,14 @@ public class RegisterAction {
 
 	}
 
-	//发送请求，并得到返回结果
+	/**
+	 * 发送请求，并得到返回结果
+	 * @param email
+	 * @param password
+	 * @param uid
+	 * @param authtime
+	 * @return
+	 */
 	public JSONObject register(String email, String password, String uid,
 			String authtime) {
 		String body = String.format(template, new Object[] { email, password,
