@@ -18,11 +18,13 @@ public class LoginAction {
 			"config/httptest.properties");
 	private static Logger logger = Logger.getLogger(LoginAction.class);
 
-	//初始化，构造请求URL连接
+	/**
+	 * 初始化，构造登录请求URL连接
+	 */
 	public LoginAction() {
 		String secret = PropUtil.get("secret");
 		StringBuffer sb = new StringBuffer();
-		String baseUrl = PropUtil.get("baseUrl") + "/mktvportal/mktv/login";
+		String baseUrl = PropUtil.get("baseUrl") + "/api/user/session/get";
 		String queryString1 = "timestamp=" + System.currentTimeMillis();
 		String queryString2 = "&signature="
 				+ Utils.md5((queryString1 + secret).getBytes());
@@ -37,8 +39,8 @@ public class LoginAction {
 	}
 
 	//发送请求，并得到返回结果
-	public JSONObject login(String email, String password) {
-		String body = String.format(template, new Object[] { email, password });
+	public JSONObject login(String userName, String password) {
+		String body = String.format(template, new Object[] { userName, password });
 		response = request.sendPostRequest(url, body);
 		response.printResponse();
 		if (response.getStatusCode() == 200) {

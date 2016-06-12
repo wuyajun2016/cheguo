@@ -19,11 +19,13 @@ public class RegisterAction {
 			"config/httptest.properties");
 	private static Logger logger = Logger.getLogger(RegisterAction.class);
 
-	//构造请求的URL连接
+	/**
+	 * 构造请求的URL连接
+	 */
 	public RegisterAction() {
 		String secret = PropUtil.get("secret");
 		StringBuffer sb = new StringBuffer();
-		String baseUrl = PropUtil.get("baseUrl") + "/mktvportal/mktv/register";
+		String baseUrl = PropUtil.get("baseUrl") + "/view/index.html";
 		String queryString1 = "timestamp=" + System.currentTimeMillis();
 		String queryString2 = "&signature="
 				+ Utils.md5((queryString1 + secret).getBytes());

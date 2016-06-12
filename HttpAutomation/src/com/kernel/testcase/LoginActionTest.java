@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.kernel.action.LoginAction;
+import com.kernel.action.IndexPageAction;
 import com.kernel.basecase.BaseCase;
 import com.kernel.util.Base64;
 import com.kernel.util.ExcelUtil;
@@ -17,36 +18,49 @@ import com.kernel.util.ExcelUtil;
 @Test(groups = { "LoginActionTest" }, description = "登录测试")
 public class LoginActionTest extends BaseCase {
 	private LoginAction LoginAction;
+	private IndexPageAction IndexPageAction;
 	private Logger logger = Logger.getLogger(LoginActionTest.class);
 
 	@BeforeClass(alwaysRun = true)
 	public void beforeClassTest() {
 		try {
 			beforeClass();
-			LoginAction = new LoginAction();
 		} catch (Exception e) {
 			logger.error("执行LoginActionTest.beforeClassTest错误：", e);
 		}
 	}
 
-	@Test(enabled = true, alwaysRun = true, description = "登录测试")
+	@Test(enabled = true, alwaysRun = true, description = "打开首页")
+	public void indexPage() {
+		try {
+			beforeTest("indexPage");
+			IndexPageAction = new IndexPageAction();
+			boolean flag = IndexPageAction.login();
+			Assert.assertEquals(flag, true, className + ".testLogin failed!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test(dependsOnMethods={"indexPage"},enabled = true, alwaysRun = true, description = "登录测试")
 	public void testLogin() {
 		boolean flag = false;
 
 		try {
 			beforeTest("testLogin");
+			LoginAction = new LoginAction();
 			Map<String, String> userMap = ExcelUtil.importDataTable(
 					"testdata.xls", "LoginActionTest", "testLogin");
-			String email = userMap.get("email");
+			String userName = userMap.get("email");
 			String password = Base64.encode(userMap.get("password"), "utf-8");
-			JSONObject JSONObject = LoginAction.login(email, password);
+			JSONObject JSONObject = LoginAction.login(userName, password);
 			String actualEmail = JSONObject.getJSONObject("result")
 					.optJSONObject("user").optString("email");
 			String token = JSONObject.getJSONObject("result")
 					.optJSONObject("user").optString("token");
 			String errorcode = JSONObject.getJSONObject("result").optString(
 					"errorcode");
-			if (email.equals(actualEmail) && !"".equals(token)
+			if (userName.equals(actualEmail) && !"".equals(token)
 					&& "ok".equals(errorcode)) {
 				flag = true;
 			}
@@ -57,29 +71,29 @@ public class LoginActionTest extends BaseCase {
 		Assert.assertEquals(flag, true, className + ".testLogin failed!");
 	}
 
-	@Test(dependsOnMethods = { "testLogin" }, enabled = true, alwaysRun = true, description = "登录密码错误测试")
-	public void testLoginWithPwdError() {
-		boolean flag = false;
-
-		try {
-			beforeTest("testLoginWithPwdError");
-			Map<String, String> userMap = ExcelUtil.importDataTable(
-					"testdata.xls", "LoginActionTest", "testLoginWithPwdError");
-			String email = userMap.get("email");
-			String password = Base64.encode(userMap.get("password"), "utf-8");
-			JSONObject JSONObject = LoginAction.login(email, password);
-			String errorcode = JSONObject.getJSONObject("result").optString(
-					"errorcode");
-			if ("2201".equals(errorcode)) {
-				flag = true;
-			}
-		} catch (Exception e) {
-			logger.error("执行LoginActionTest.testLoginWithPwdError错误：", e);
-		}
-		afterTest("testLoginWithPwdError", flag);
-		Assert.assertEquals(flag, true, className
-				+ ".testLoginWithPwdError failed!");
-	}
+//	@Test(dependsOnMethods = { "testLogin" }, enabled = true, alwaysRun = false, description = "登录密码错误测试")
+//	public void testLoginWithPwdError() {
+//		boolean flag = false;
+//
+//		try {
+//			beforeTest("testLoginWithPwdError");
+//			Map<String, String> userMap = ExcelUtil.importDataTable(
+//					"testdata.xls", "LoginActionTest", "testLoginWithPwdError");
+//			String email = userMap.get("email");
+//			String password = Base64.encode(userMap.get("password"), "utf-8");
+//			JSONObject JSONObject = LoginAction.login(email, password);
+//			String errorcode = JSONObject.getJSONObject("result").optString(
+//					"errorcode");
+//			if ("2201".equals(errorcode)) {
+//				flag = true;
+//			}
+//		} catch (Exception e) {
+//			logger.error("执行LoginActionTest.testLoginWithPwdError错误：", e);
+//		}
+//		afterTest("testLoginWithPwdError", flag);
+//		Assert.assertEquals(flag, true, className
+//				+ ".testLoginWithPwdError failed!");
+//	}
 
 	@AfterClass(alwaysRun = true)
 	public void afterClassTest() {

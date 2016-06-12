@@ -5,9 +5,7 @@
 
 	<test name="HttpTestUtil">
 		<classes>
-			<class name="com.kernel.testcase.InitTest"></class>
 			<class name="com.kernel.testcase.LoginActionTest"></class>
-			<class name="com.kernel.testcase.RegisterActionTest"></class>
 		</classes>
 	</test>
 </suite>
