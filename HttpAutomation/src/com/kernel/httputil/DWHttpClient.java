@@ -1,16 +1,27 @@
 package com.kernel.httputil;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
+
+import com.kernel.util.Base64;
 
 /**
  * Utility that makes HTTP requests to the web service interfaces Other classes
@@ -59,7 +70,7 @@ public class DWHttpClient {
 	 *            the data to send
 	 * @return DWHttpResponse
 	 */
-	public DWHttpResponse sendPostRequest(String url, String body) {
+	public DWHttpResponse sendPostRequest(String url, Map<String,String> body) {
 		HttpPost method = new HttpPost(url);  //创建一个HttpPost对象
 		method.addHeader(new BasicHeader("Accept", WebConstant.WEB_ACCEPT_JSON));
 		method.addHeader(new BasicHeader("ContentType",
@@ -79,10 +90,16 @@ public class DWHttpClient {
 		DWHttpResponse response = null;
 
 		try {
-			StringEntity se = new StringEntity(body);
-			se.setContentEncoding(WebConstant.CHARSET_UTF8);
-			se.setContentType(WebConstant.WEB_ACCEPT_JSON);
-			method.setEntity(se); //使用HttpPost类的setEntity方法设置请求参数
+//			StringEntity se = new StringEntity(body, "utf-8");
+//			se.setContentEncoding(WebConstant.CHARSET_UTF8);
+//			se.setContentType(WebConstant.WEB_ACCEPT_JSON);
+//			
+			List<NameValuePair> nvps = new ArrayList<NameValuePair>();  
+	        nvps.add(new BasicNameValuePair("userName", body.get("username")));  
+	        nvps.add(new BasicNameValuePair("password", Base64.decode(body.get("password"), "utf-8")));  
+	        method.setEntity(new UrlEncodedFormEntity(nvps));
+	        
+			//method.setEntity(se); //使用HttpPost类的setEntity方法设置请求参数
 			response = sendRequest(method);
 		} catch (Exception e) {
 			logger.error("sendPostRequest error : ", e);
@@ -101,7 +118,6 @@ public class DWHttpClient {
 
 		DWHttpResponse res = new DWHttpResponse();
 		HttpEntity entity = null;
-
 		try {
 			HttpResponse HttpResponse = client.execute(method);  //使用DefaultHttpClient类的execute方法发送HTTP GET或HTTP POST请求，并返回HttpResponse对象
 			res.setStatusCode(HttpResponse.getStatusLine().getStatusCode());

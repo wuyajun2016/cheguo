@@ -1,6 +1,10 @@
 package com.kernel.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.kernel.httputil.DWHttpClient;
@@ -24,7 +28,7 @@ public class LoginAction {
 	public LoginAction() {
 		String secret = PropUtil.get("secret");
 		StringBuffer sb = new StringBuffer();
-		String baseUrl = PropUtil.get("baseUrl") + "/api/user/session/get";
+		String baseUrl = PropUtil.get("baseUrl") + "/api/login";
 		String queryString1 = "timestamp=" + System.currentTimeMillis();
 		String queryString2 = "&signature="
 				+ Utils.md5((queryString1 + secret).getBytes());
@@ -40,8 +44,12 @@ public class LoginAction {
 
 	//发送请求，并得到返回结果
 	public JSONObject login(String userName, String password) {
-		String body = String.format(template, new Object[] { userName, password });
-		response = request.sendPostRequest(url, body);
+//		String body = String.format(template, new Object[] { userName, password });
+		Map<String,String> params =  new HashMap<String,String>();
+		params.put("username", userName);
+		params.put("password", password);
+		logger.debug(params);
+		response = request.sendPostRequest(url, params);
 		response.printResponse();
 		if (response.getStatusCode() == 200) {
 			return response.getBodyAsJson();

@@ -1,8 +1,6 @@
 {
     "request":{
-	"user":{
         "userName":"%1$s",
         "password":"%2$s"
-	}
     }       
 }

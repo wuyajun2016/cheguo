@@ -54,16 +54,10 @@ public class LoginActionTest extends BaseCase {
 			String userName = userMap.get("email");
 			String password = Base64.encode(userMap.get("password"), "utf-8");
 			JSONObject JSONObject = LoginAction.login(userName, password);
-			String actualEmail = JSONObject.getJSONObject("result")
-					.optJSONObject("user").optString("email");
-			String token = JSONObject.getJSONObject("result")
-					.optJSONObject("user").optString("token");
-			String errorcode = JSONObject.getJSONObject("result").optString(
-					"errorcode");
-			if (userName.equals(actualEmail) && !"".equals(token)
-					&& "ok".equals(errorcode)) {
-				flag = true;
-			}
+			String success = JSONObject.get("code").toString();
+			if ("10000".equals(success)) {
+			  flag = true;
+		    }
 		} catch (Exception e) {
 			logger.error("执行LoginActionTest.testLogin错误：", e);
 		}

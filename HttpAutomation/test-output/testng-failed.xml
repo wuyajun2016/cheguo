@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [HttpTestUtil]">
+  <test name="HttpTestUtil(failed)">
+    <classes>
+      <class name="com.kernel.testcase.LoginActionTest">
+        <methods>
+          <include name="beforeClassTest"/>
+          <include name="indexPage"/>
+          <include name="afterClassTest"/>
+          <include name="testLogin"/>
+        </methods>
+      </class> <!-- com.kernel.testcase.LoginActionTest -->
+    </classes>
+  </test> <!-- HttpTestUtil(failed) -->
+</suite> <!-- Failed suite [HttpTestUtil] -->

@@ -10,6 +10,11 @@ import com.kernel.util.FileUtil;
 import com.kernel.util.PropUtil;
 import com.kernel.util.Utils;
 
+/**
+ * 先注册
+ * @author Administrator
+ *
+ */
 public class RegisterAction {
 	private DWHttpClient request = new DWHttpClient();
 	private DWHttpResponse response;
@@ -51,7 +56,7 @@ public class RegisterAction {
 			String authtime) {
 		String body = String.format(template, new Object[] { email, password,
 				uid, authtime });
-		response = request.sendPostRequest(url, body);
+//		response = request.sendPostRequest(url, body);
 		response.printResponse();
 		if (response.getStatusCode() == 200) {
 			return response.getBodyAsJson();
