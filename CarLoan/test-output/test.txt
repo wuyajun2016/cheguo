@@ -1,2 +1,0 @@
-com.auction.testcase.MyTaskOfficeInputTest testLogin 2016-04-28 17:08:47 442∫¡√Î SUCCESS
-com.auction.testcase.MyTaskOfficeInputTest myTaskOfficeInput 2016-04-28 17:08:48 81176∫¡√Î SUCCESS

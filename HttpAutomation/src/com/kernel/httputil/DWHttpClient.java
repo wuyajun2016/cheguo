@@ -1,5 +1,8 @@
 package com.kernel.httputil;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,12 +15,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
@@ -34,6 +34,7 @@ public class DWHttpClient {
 
 	private DefaultHttpClient client = new DefaultHttpClient();
 	private Logger logger = Logger.getLogger(DWHttpClient.class);
+	private static final String CHARSET = "UTF-8";
 
 	/**
 	 * Sends a HTTP GET request with the provided uri
@@ -45,8 +46,8 @@ public class DWHttpClient {
 	public DWHttpResponse sendGetRequest(String url) {
 		HttpGet method = new HttpGet(url);
 		method.addHeader(new BasicHeader("Accept", WebConstant.WEB_ACCEPT_JSON));
-		method.addHeader(new BasicHeader("ContentType",
-				WebConstant.WEB_CONTENT_TYPE_JSON));
+		method.addHeader(new BasicHeader("Content-Type",
+				WebConstant.WEB_ACCEPT_HTML));
 		logger.debug("----------------------------------------------");
 		logger.debug("Http Request Url : " + url);
 		logger.debug("Http Request Method : " + method.getMethod());
@@ -56,7 +57,7 @@ public class DWHttpClient {
 			logger.debug(h.getName() + ":" + h.getValue());
 		}
 		logger.debug("----------------------------------------------");
-
+		
 		DWHttpResponse response = sendRequest(method);
 		return response;
 	}
@@ -120,9 +121,10 @@ public class DWHttpClient {
 		HttpEntity entity = null;
 		try {
 			HttpResponse HttpResponse = client.execute(method);  //使用DefaultHttpClient类的execute方法发送HTTP GET或HTTP POST请求，并返回HttpResponse对象
+			
 			res.setStatusCode(HttpResponse.getStatusLine().getStatusCode());
 			res.setStatusLine(HttpResponse.getStatusLine().toString());
-
+			
 			entity = HttpResponse.getEntity();  //通过HttpResponse接口的getEntity方法返回响应信息，并进行相应的处理
 			String charset = EntityUtils.getContentCharSet(entity);  //取出应答字符串
 			res.setBody(EntityUtils.toString(entity, charset));

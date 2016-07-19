@@ -19,7 +19,8 @@
 			<!-- 同一级别的测试执行会按照class配置的先后顺序执行 -->
 			<!-- 非同一级别的测试仍按照testNG的优先级执行，Suite > Class > Test -->
 			<class name="com.framework.webdriver.testcase.InitWebdriverTest"></class>	
-			<class name="com.auction.testcase.MyTaskOfficeInputTest"></class>
+			<class name="com.auction.testcase.StartCreditTest"></class>	
+
 		</classes>
 	</test>
 </suite>

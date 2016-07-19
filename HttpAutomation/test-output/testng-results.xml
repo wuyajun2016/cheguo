@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="HttpTestUtil" duration-ms="527" started-at="2016-06-30T08:41:40Z" finished-at="2016-06-30T08:41:40Z">
+  <suite name="HttpTestUtil" duration-ms="658" started-at="2016-07-01T06:56:14Z" finished-at="2016-07-01T06:56:15Z">
     <groups>
       <group name="LoginActionTest">
-        <method signature="LoginActionTest.indexPage()[pri:0, instance:com.kernel.testcase.LoginActionTest@37db2007]" name="indexPage" class="com.kernel.testcase.LoginActionTest"/>
-        <method signature="LoginActionTest.testLogin()[pri:0, instance:com.kernel.testcase.LoginActionTest@37db2007]" name="testLogin" class="com.kernel.testcase.LoginActionTest"/>
+        <method signature="LoginActionTest.indexPage()[pri:0, instance:com.kernel.testcase.LoginActionTest@417858a9]" name="indexPage" class="com.kernel.testcase.LoginActionTest"/>
+        <method signature="LoginActionTest.testLogin()[pri:0, instance:com.kernel.testcase.LoginActionTest@417858a9]" name="testLogin" class="com.kernel.testcase.LoginActionTest"/>
       </group> <!-- LoginActionTest -->
     </groups>
-    <test name="HttpTestUtil" duration-ms="527" started-at="2016-06-30T08:41:40Z" finished-at="2016-06-30T08:41:40Z">
+    <test name="HttpTestUtil" duration-ms="658" started-at="2016-07-01T06:56:14Z" finished-at="2016-07-01T06:56:15Z">
       <class name="com.kernel.testcase.LoginActionTest">
-        <test-method status="PASS" signature="beforeClassTest()[pri:0, instance:com.kernel.testcase.LoginActionTest@37db2007]" name="beforeClassTest" is-config="true" duration-ms="11" started-at="2016-06-30T16:41:40Z" finished-at="2016-06-30T16:41:40Z">
+        <test-method status="PASS" signature="beforeClassTest()[pri:0, instance:com.kernel.testcase.LoginActionTest@417858a9]" name="beforeClassTest" is-config="true" duration-ms="12" started-at="2016-07-01T14:56:14Z" finished-at="2016-07-01T14:56:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClassTest -->
-        <test-method status="PASS" signature="indexPage()[pri:0, instance:com.kernel.testcase.LoginActionTest@37db2007]" name="indexPage" duration-ms="255" started-at="2016-06-30T16:41:40Z" description="´ò¿ªÊ×Ò³" finished-at="2016-06-30T16:41:40Z">
+        <test-method status="PASS" signature="indexPage()[pri:0, instance:com.kernel.testcase.LoginActionTest@417858a9]" name="indexPage" duration-ms="318" started-at="2016-07-01T14:56:14Z" description="æ‰“å¼€é¦–é¡µ" finished-at="2016-07-01T14:56:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- indexPage -->
-        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.kernel.testcase.LoginActionTest@37db2007]" name="testLogin" duration-ms="241" started-at="2016-06-30T16:41:40Z" description="µÇÂ¼²âÊÔ" depends-on-methods="com.kernel.testcase.LoginActionTest.indexPage" finished-at="2016-06-30T16:41:40Z">
+        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.kernel.testcase.LoginActionTest@417858a9]" name="testLogin" duration-ms="306" started-at="2016-07-01T14:56:15Z" description="ç™»å½•æµ‹è¯•" depends-on-methods="com.kernel.testcase.LoginActionTest.indexPage" finished-at="2016-07-01T14:56:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLogin -->
-        <test-method status="PASS" signature="afterClassTest()[pri:0, instance:com.kernel.testcase.LoginActionTest@37db2007]" name="afterClassTest" is-config="true" duration-ms="2" started-at="2016-06-30T16:41:40Z" finished-at="2016-06-30T16:41:40Z">
+        <test-method status="PASS" signature="afterClassTest()[pri:0, instance:com.kernel.testcase.LoginActionTest@417858a9]" name="afterClassTest" is-config="true" duration-ms="2" started-at="2016-07-01T14:56:15Z" finished-at="2016-07-01T14:56:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClassTest -->

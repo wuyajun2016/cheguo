@@ -36,9 +36,9 @@ public class LoginAction {
 				.append(queryString2).toString();
 		FileUtil file = new FileUtil();
 		logger.debug("url is :" + url);
-		template = file.getContent("login.template");
-		logger.debug("template is :");
-		logger.debug(template);
+//		template = file.getContent("login.template");
+//		logger.debug("template is :");
+//		logger.debug(template);
 
 	}
 
