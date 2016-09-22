@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -44,6 +46,7 @@ public class DWHttpClient {
 	 * @return DWHttpResponse
 	 */
 	public DWHttpResponse sendGetRequest(String url) {
+		HttpMethod method1 = new GetMethod(url);
 		HttpGet method = new HttpGet(url);
 		method.addHeader(new BasicHeader("Accept", WebConstant.WEB_ACCEPT_JSON));
 		method.addHeader(new BasicHeader("Content-Type",
@@ -121,6 +124,15 @@ public class DWHttpClient {
 		HttpEntity entity = null;
 		try {
 			HttpResponse HttpResponse = client.execute(method);  //使用DefaultHttpClient类的execute方法发送HTTP GET或HTTP POST请求，并返回HttpResponse对象
+//			method.get
+//			BufferedReader br = new BufferedReader(new InputStreamReader(
+//					HttpPost.getResponseBodyAsStream(),"UTF-8"));
+//			StringBuffer sbf = new StringBuffer();
+//			String line = null;
+//			while ((line = br.readLine()) != null)
+//			{
+//			sbf.append(line);
+//			}
 			
 			res.setStatusCode(HttpResponse.getStatusLine().getStatusCode());
 			res.setStatusLine(HttpResponse.getStatusLine().toString());
