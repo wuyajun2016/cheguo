@@ -64,6 +64,34 @@ public class ItemsController {
 		return modelAndView;
 
 	}
+	
+	// 根据‘商品名称’查询商品
+	@RequestMapping(value="/searchItems",method={RequestMethod.POST,RequestMethod.GET})
+	public String searchItems(Model model,@RequestParam(value="items_name",required=true) String items_name) throws Exception {
+		// 调用service查找 数据库，查询商品列表
+		List<ItemsCustom> itemsCustom = itemsService.findItemsByName(items_name);
+		
+		//通过形参中的model将model数据传到页面
+		//相当于modelAndView.addObject方法
+		model.addAttribute("itemsCustom", itemsCustom);
+		
+		return "items/searchItems";
+
+	}
+	
+	// 根据‘商品名称’查询商品 --使用json来处理
+//	@RequestMapping(value="/searchItems",method={RequestMethod.POST,RequestMethod.GET})
+//	public String searchItemstt(Model model,@RequestParam(value="items_name",required=true) String items_name) throws Exception {
+//		// 调用service查找 数据库，查询商品列表
+//		List<ItemsCustom> itemsCustom = itemsService.findItemsByName(items_name);
+//		
+//		//通过形参中的model将model数据传到页面
+//		//相当于modelAndView.addObject方法
+//		model.addAttribute("itemsCustom", itemsCustom);
+//		
+//		return "items/searchItems";
+//
+//	}
 
 	//商品信息修改页面显示
 	//@RequestMapping("/editItems")
@@ -110,10 +138,10 @@ public class ItemsController {
 		itemsService.updateItems(id, itemsCustom);
 		
 		//重定向到商品查询列表
-//		return "redirect:queryItems.action";
+		return "redirect:queryItems.html";
 		//页面转发
-		//return "forward:queryItems.action";
-		return "success";
+//		return "forward:queryItems.html";
+//		return "success";
 	}
 
 

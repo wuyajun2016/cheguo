@@ -21,6 +21,8 @@ public interface ItemsMapper {
     List<Items> selectByExample(ItemsExample example);
 
     Items selectByPrimaryKey(Integer id);
+    
+    List<Items> selectByOrderName(String name);
 
     int updateByExampleSelective(@Param("record") Items record, @Param("example") ItemsExample example);
 

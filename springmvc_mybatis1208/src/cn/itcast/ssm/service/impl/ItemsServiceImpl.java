@@ -1,5 +1,6 @@
 package cn.itcast.ssm.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -50,6 +51,24 @@ public class ItemsServiceImpl implements ItemsService{
 		return itemsCustom;
 		
 	}
+	
+	@Override
+	public List<ItemsCustom> findItemsByName(String name) throws Exception {
+		
+		List<Items> items = itemsMapper.selectByOrderName(name);
+		//返回ItemsCustom
+		List<ItemsCustom> itemsCustoms = new ArrayList<ItemsCustom>();
+		for(Items item:items){
+			//将items的属性值拷贝到itemsCustom
+			ItemsCustom itemsCustom = new ItemsCustom();
+			BeanUtils.copyProperties(item, itemsCustom);
+			itemsCustoms.add(itemsCustom);
+		}
+		//转换成json
+
+			return itemsCustoms;
+	}
+	
 
 	@Override
 	public void updateItems(Integer id, ItemsCustom itemsCustom) throws Exception {

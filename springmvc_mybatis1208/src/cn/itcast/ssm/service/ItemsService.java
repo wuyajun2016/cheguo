@@ -30,6 +30,16 @@ public interface ItemsService {
 	 */
 	public ItemsCustom findItemsById(Integer id) throws Exception;
 	
+	//根据名称查询商品信息
+	/**
+	 * 
+	 * <p>Title: findItemsByName</p>
+	 * <p>Description: </p>
+	 * @param name 查询商品的名称
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ItemsCustom> findItemsByName(String name) throws Exception;
 	//修改商品信息
 	/**
 	 * 
