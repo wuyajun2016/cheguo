@@ -7,6 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查询商品列表</title>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.7.1.min.js"></script>
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
 function deleteItems(){
 	//提交form
@@ -18,16 +22,19 @@ function queryItems(){
 	document.itemsForm.action="${pageContext.request.contextPath }/items/queryItems.action";
 	document.itemsForm.submit();
 }
+function quit(){
+	window.location.reload();
+}
 </script>
 </head>
 <body> 
-当前用户：${username }，
+<!-- 当前用户：${username }，
 <c:if test="${username!=null }">
- <a href="${pageContext.request.contextPath }/logout.action">退出</a>
-</c:if>
+ <a href="${pageContext.request.contextPath }/logout.action" onclick="quit()">退出</a>
+</c:if> -->
 <form name="itemsForm" action="${pageContext.request.contextPath }/items/queryItems.action" method="post">
 查询条件：
-<table width="100%" border=1>
+<table class="table table-striped">
 <tr>
 <td>
 商品名称：<input name="itemsCustom.name" />
@@ -45,7 +52,7 @@ function queryItems(){
 </tr>
 </table>
 商品列表：
-<table width="100%" border=1>
+<table class="table table-striped">
 <tr>
 	<td>选择</td>
 	<td>商品名称</td>

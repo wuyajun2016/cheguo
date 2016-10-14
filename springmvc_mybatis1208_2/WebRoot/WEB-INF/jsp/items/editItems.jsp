@@ -7,7 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>修改商品信息</title>
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.7.1.min.js"></script>
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 </head>
 <body> 
 <!-- 显示错误信息 -->
@@ -20,7 +23,7 @@
 <form id="itemForm" action="${pageContext.request.contextPath }/items/editItemsSubmit.action" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="${items.id }"/>
 修改商品信息：
-<table width="100%" border=1>
+<table class="table table-striped">
 <tr>
 	<td>商品名称</td>
 	<td><input type="text" name="name" value="${items.name }"/></td>

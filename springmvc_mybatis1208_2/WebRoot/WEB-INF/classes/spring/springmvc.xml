@@ -23,6 +23,12 @@
 	 -->
 	 <mvc:resources location="/js/" mapping="/js/**"/>
 	 <mvc:resources location="/img/" mapping="/img/**"/>
+	 <mvc:resources location="/nav/js/" mapping="/nav/js/**"/>
+	 <mvc:resources location="/nav/images/" mapping="/nav/images/**"/>
+	 <mvc:resources location="/nav/css/" mapping="/nav/css/**"/>
+	 <mvc:resources location="/bootstrap/js/" mapping="/bootstrap/js/**"/>
+	 <mvc:resources location="/bootstrap/images/" mapping="/bootstrap/img/**"/>
+	 <mvc:resources location="/bootstrap/css/" mapping="/bootstrap/css/**"/>
 	
 		
 	<!--注解映射器 -->
@@ -105,7 +111,7 @@
 	<!--多个拦截器,顺序执行 -->
 	<!-- 登陆认证拦截器 -->
 	<mvc:interceptor>
-		<mvc:mapping path="/**"/>
+		<mvc:mapping path="/**/*.action"/>
 		<bean class="cn.itcast.ssm.interceptor.LoginInterceptor"></bean>
 	</mvc:interceptor>
 	<mvc:interceptor>

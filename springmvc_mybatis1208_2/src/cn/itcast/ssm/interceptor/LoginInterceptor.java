@@ -1,11 +1,15 @@
 package cn.itcast.ssm.interceptor;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
+import cn.itcast.ssm.controller.LoginController;
 
 /**
  * 
@@ -25,7 +29,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		
+
+		String loginOk;
 		//获取请求的url
 		String url = request.getRequestURI();
 		//判断url是否是公开 地址（实际使用时将公开 地址配置配置文件中）
@@ -39,11 +44,18 @@ public class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session  = request.getSession();
 		//从session中取出用户身份信息
 		String username = (String) session.getAttribute("username");
-		
-		if(username != null){
-			//身份存在，放行
-			return true;
+
+//		Map<String, Object> islogin = (Map<String, Object>) session.getAttribute("islogin");
+//		islogin.get("success").toString().equals("true") && 
+		try{
+			if(username != null && username!=""){
+				//身份存在，放行
+				return true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
+
 		
 		//执行这里表示用户身份需要认证，跳转登陆页面
 		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);

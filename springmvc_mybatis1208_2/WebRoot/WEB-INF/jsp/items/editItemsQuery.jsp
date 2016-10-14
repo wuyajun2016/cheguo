@@ -7,6 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查询商品列表</title>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.7.1.min.js"></script>
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
 function editItemsAllSubmit(){
 	//提交form
@@ -23,7 +27,7 @@ function queryItems(){
 <body> 
 <form name="itemsForm" action="${pageContext.request.contextPath }/items/queryItems.action" method="post">
 查询条件：
-<table width="100%" border=1>
+<table class="table table-striped">
 <tr>
 <td>
 商品名称：<input name="itemsCustom.name" />
@@ -34,7 +38,7 @@ function queryItems(){
 </tr>
 </table>
 商品列表：
-<table width="100%" border=1>
+<table class="table table-striped">
 <tr>
 	<td>商品名称</td>
 	<td>商品价格</td>

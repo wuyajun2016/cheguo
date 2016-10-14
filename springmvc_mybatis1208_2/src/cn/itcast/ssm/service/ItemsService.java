@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.itcast.ssm.po.ItemsCustom;
 import cn.itcast.ssm.po.ItemsQueryVo;
+import cn.itcast.ssm.po.UserInfo;
 
 /**
  * 
@@ -42,4 +43,6 @@ public interface ItemsService {
 	public void updateItems(Integer id,ItemsCustom itemsCustom) throws Exception;
 	
 
+	//校验登录账户信息
+	public Boolean findUserByNameAndPassword(UserInfo userinfo) throws Exception;
 }

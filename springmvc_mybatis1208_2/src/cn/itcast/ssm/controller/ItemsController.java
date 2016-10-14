@@ -56,6 +56,7 @@ public class ItemsController {
 
 	// 商品分类
 	//itemtypes表示最终将方法返回值放在request中的key
+	//被@ModelAttribute注释的方法会在此controller每个方法执行前被执行
 	@ModelAttribute("itemtypes")
 	public Map<String, String> getItemTypes() {
 
@@ -76,7 +77,7 @@ public class ItemsController {
 
 		// 调用service查找 数据库，查询商品列表
 		List<ItemsCustom> itemsList = itemsService.findItemsList(itemsQueryVo);
-
+		
 		// 返回ModelAndView
 		ModelAndView modelAndView = new ModelAndView();
 		// 相当 于request的setAttribut，在jsp页面中通过itemsList取数据
@@ -87,6 +88,20 @@ public class ItemsController {
 		// modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");
 		// 上边的路径配置可以不在程序中指定jsp路径的前缀和jsp路径的后缀
 		modelAndView.setViewName("items/itemsList");
+
+		return modelAndView;
+
+	}
+	
+	// 商品查询
+	@RequestMapping("/nav")
+	public ModelAndView nav(HttpServletRequest request,
+			ItemsQueryVo itemsQueryVo) throws Exception {
+
+		// 返回ModelAndView
+		ModelAndView modelAndView = new ModelAndView();
+
+		modelAndView.setViewName("nav");
 
 		return modelAndView;
 
@@ -192,7 +207,7 @@ public class ItemsController {
 		if(items_pic!=null && originalFilename!=null && originalFilename.length()>0){
 			
 			//存储图片的物理路径
-			String pic_path = "F:\\develop\\upload\\temp\\";
+			String pic_path = "E:\\develop\\upload\\temp\\";
 			
 			
 			//新的图片名称

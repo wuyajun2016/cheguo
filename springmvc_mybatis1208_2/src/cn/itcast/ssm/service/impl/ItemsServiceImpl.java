@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import cn.itcast.ssm.exception.CustomException;
 import cn.itcast.ssm.mapper.ItemsMapper;
 import cn.itcast.ssm.mapper.ItemsMapperCustom;
+import cn.itcast.ssm.mapper.UserInfoMapper;
 import cn.itcast.ssm.po.Items;
 import cn.itcast.ssm.po.ItemsCustom;
 import cn.itcast.ssm.po.ItemsQueryVo;
+import cn.itcast.ssm.po.UserInfo;
 import cn.itcast.ssm.service.ItemsService;
 
 /**
@@ -29,7 +31,10 @@ public class ItemsServiceImpl implements ItemsService{
 	
 	@Autowired
 	private ItemsMapper itemsMapper;
-
+	
+	@Autowired
+	private UserInfoMapper userInfoMapper;
+	
 	@Override
 	public List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo)
 			throws Exception {
@@ -70,4 +75,11 @@ public class ItemsServiceImpl implements ItemsService{
 		itemsMapper.updateByPrimaryKeyWithBLOBs(itemsCustom);
 	}
 
+	@Override
+	public Boolean findUserByNameAndPassword(UserInfo userinfo) throws Exception {
+		// TODO Auto-generated method stub
+		return userInfoMapper.selectByUserNameAndPassword(userinfo);
+	}
+
+	
 }
